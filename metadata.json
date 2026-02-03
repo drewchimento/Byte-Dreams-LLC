@@ -1,0 +1,8 @@
+{
+  "name": "Byte Dreams - AI Interoperable Systems",
+  "description": "Modern AI service business website featuring high-energy brutalist design, minimalist navigation, and a live automation demo.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

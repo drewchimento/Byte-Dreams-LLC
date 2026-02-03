@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'Dottix';
+    src: url('/fonts/Dottix.woff2') format('woff2');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'NobulaHubiont';
+    src: url('/fonts/NobulaHubiont.woff2') format('woff2');
+    font-weight: normal;
+}
+
+:root {
+    --primary: #0E0E0E;
+    --accent: #0E0E0E;
+    --bg: #E4E4E4;
+    --text: #0E0E0E;
+    --unit: 4px;
+
+    /* Typography Scale */
+    --h1-size: clamp(80px, 15vw, 237.5px);
+    --h2-size: 17.5px;
+    --body-size: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0px !important;
+    /* Strict 0px radius */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'NobulaHubiont', 'Helvetica Neue', Arial, sans-serif;
+    font-size: var(--body-size);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.heading-font {
+    font-family: 'Dottix', 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Layout Grid */
+.container {
+    width: 100%;
+    border-left: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    /* Ensure container doesn't overflow horizontally on small screens if fixed width issues arise */
+    max-width: 100%;
+}
+
+section {
+    border-bottom: 1px solid var(--primary);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    min-height: 300px;
+}
+
+.section-marker {
+    border-right: 1px solid var(--primary);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+    font-family: 'Dottix', monospace;
+    font-size: 24px;
+}
+
+.content {
+    padding: 40px;
+    position: relative;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--primary);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+/* Hero Section */
+.hero {
+    display: block;
+    padding: 40px;
+    border-bottom: 1px solid var(--primary);
+}
+
+.hero h1 {
+    font-size: var(--h1-size);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    margin-bottom: 40px;
+    word-wrap: break-word;
+}
+
+.hero-sub {
+    max-width: 600px;
+    margin-left: auto;
+}
+
+.hero-tagline {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Dottix', monospace;
+}
+
+/* Industry Grid */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--primary);
+    margin-top: 40px;
+}
+
+.industry-card {
+    border: 1px solid var(--primary);
+    margin-left: -1px;
+    margin-top: -1px;
+    padding: 24px;
+}
+
+.industry-card h3 {
+    font-size: var(--h2-size);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--primary);
+    display: inline-block;
+}
+
+/* How it Works Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: start;
+}
+
+.step-num {
+    font-family: 'Dottix', monospace;
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+.step-label {
+    display: inline-block;
+    border: 1px solid var(--primary);
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* CTA */
+.cta-box {
+    background: var(--primary);
+    color: var(--bg);
+    padding: 80px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    display: block;
+}
+
+.cta-box:hover {
+    opacity: 0.9;
+}
+
+.cta-box h2 {
+    font-size: clamp(40px, 8vw, 120px);
+}
+
+/* Utility */
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.h2-style {
+    font-size: var(--h2-size);
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: 1fr;
+    }
+
+    .section-marker {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+}

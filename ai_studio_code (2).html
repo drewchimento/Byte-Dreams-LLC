@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTE DREAMS | AI Service Agency</title>
+    <style>
+        /* FONT DECLARATIONS - Replace URLs with your actual font files */
+        @font-face {
+            font-family: 'Dottix';
+            src: url('fonts/Dottix.woff2') format('woff2');
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: 'NobulaHubiont';
+            src: url('fonts/NobulaHubiont.woff2') format('woff2');
+            font-weight: normal;
+        }
+
+        :root {
+            --primary: #0E0E0E;
+            --accent: #0E0E0E;
+            --bg: #E4E4E4;
+            --text: #0E0E0E;
+            --unit: 4px;
+            
+            /* Typography Scale */
+            --h1-size: clamp(80px, 15vw, 237.5px);
+            --h2-size: 17.5px;
+            --body-size: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 0px !important; /* Strict 0px radius */
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'NobulaHubiont', sans-serif;
+            font-size: var(--body-size);
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Dottix', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Layout Grid */
+        .container {
+            width: 100%;
+            border-left: 1px solid var(--primary);
+            border-right: 1px solid var(--primary);
+        }
+
+        section {
+            border-bottom: 1px solid var(--primary);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            min-height: 300px;
+        }
+
+        .section-marker {
+            border-right: 1px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20px;
+            font-family: 'Dottix', monospace;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 40px;
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--primary);
+            background: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            letter-spacing: -1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: block;
+            padding: 40px;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .hero h1 {
+            font-size: var(--h1-size);
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            margin-bottom: 40px;
+            word-wrap: break-word;
+        }
+
+        .hero-sub {
+            max-width: 600px;
+            margin-left: auto;
+        }
+
+        .hero-tagline {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-family: 'Dottix', monospace;
+        }
+
+        /* Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            border-top: 1px solid var(--primary);
+            margin-top: 40px;
+        }
+
+        .industry-card {
+            border: 1px solid var(--primary);
+            margin-left: -1px;
+            margin-top: -1px;
+            padding: 24px;
+        }
+
+        .industry-card h3 {
+            font-size: var(--h2-size);
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--primary);
+            display: inline-block;
+        }
+
+        /* How it Works Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: start;
+        }
+
+        .step-num {
+            font-family: 'Dottix', monospace;
+            font-size: 18px;
+            opacity: 0.5;
+        }
+
+        .step-label {
+            display: inline-block;
+            border: 1px solid var(--primary);
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: var(--primary);
+            color: var(--bg);
+            padding: 80px 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .cta-box:hover {
+            opacity: 0.9;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(40px, 8vw, 120px);
+        }
+
+        /* Utility */
+        .mb-20 { margin-bottom: 20px; }
+        .h2-style { font-size: var(--h2-size); margin-bottom: 10px; opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            section { grid-template-columns: 1fr; }
+            .section-marker { display: none; }
+            .hero h1 { font-size: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo heading-font">BYTE DREAMS</div>
+        <div class="nav-links heading-font" style="font-size: 14px;">
+            CONTACT / DISCOVERY
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h1>BYTE<br>DREAMS</h1>
+            <div class="hero-sub">
+                <p class="hero-tagline">We Don’t Sell AI. We Sell Outcomes. Made Possible by AI.</p>
+                <p>An AI service agency bridging the gap between abstract technology and real competitive advantage.</p>
+            </div>
+        </div>
+
+        <!-- ABOUT US -->
+        <section id="about">
+            <div class="section-marker">01</div>
+            <div class="content">
+                <h2 class="h2-style">ABOUT US</h2>
+                <div style="max-width: 800px;">
+                    <p class="mb-20">AI does not replace people. It fundamentally redefines how they create value. AI sharpens how organizations think, decide, and execute.</p>
+                    <p>That is where we come in. We’re not the kind of consultancy that talks about what could happen someday. We build what actually works today. We design and deploy automations, tools, and operating systems that reshape how your team and business operates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDUSTRY APPLICATION -->
+        <section id="industries">
+            <div class="section-marker">02</div>
+            <div class="content">
+                <h2 class="h2-style">INDUSTRY APPLICATION</h2>
+                <div class="industry-grid">
+                    <div class="industry-card">
+                        <h3>E-COMMERCE</h3>
+                        <p>Improve customer service, optimize inventory management, and personalize marketing efforts.</p>
+                    </div>
+                    <div class="industry-card">
+                        <h3>FINANCE</h3>
+                        <p>Optimize portfolio management, risk analysis, and personalized financial advice.</p>
+                    </div>
+                    <div class="industry-card">
+                        <h3>HEALTHCARE</h3>
+                        <p>Enhance patient scheduling, automate billing, and improve diagnostics accuracy.</p>
+                    </div>
+                    <div class="industry-card">
+                        <h3>REAL ESTATE</h3>
+                        <p>Facilitate lead generation, property matching, and automated client communication.</p>
+                    </div>
+                    <div class="industry-card">
+                        <h3>LOGISTICS</h3>
+                        <p>Improve route optimization, inventory management, and demand forecasting.</p>
+                    </div>
+                    <div class="industry-card">
+                        <h3>LEGAL</h3>
+                        <p>Optimize research, archival processes, case review, and client management systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works">
+            <div class="section-marker">03</div>
+            <div class="content">
+                <h2 class="h2-style">HOW IT WORKS</h2>
+                <div class="timeline">
+                    <div class="step">
+                        <div class="step-num">[01]</div>
+                        <div>
+                            <span class="step-label">Research</span>
+                            <h3>Identify automation opportunities in your business</h3>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">[02]</div>
+                        <div>
+                            <span class="step-label">Customize</span>
+                            <h3>Design customized workflows</h3>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">[03]</div>
+                        <div>
+                            <span class="step-label">Develop</span>
+                            <h3>System integration</h3>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">[04]</div>
+                        <div>
+                            <span class="step-label">Deploy</span>
+                            <h3>Employee training and handover</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <a href="mailto:hello@bytedreams.ai" class="cta-box">
+            <h2 class="heading-font">BOOK A DISCOVERY CALL —></h2>
+            <p class="heading-font" style="margin-top: 20px; letter-spacing: 2px;">START YOUR CONVERGENCE UPON REALITY</p>
+        </a>
+
+        <!-- FOOTER -->
+        <section style="min-height: 100px; padding: 40px;">
+            <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-end;">
+                <div class="heading-font" style="font-size: 12px; opacity: 0.5;">BYTE DREAMS LLC <br> © 2024</div>
+                <div class="heading-font" style="font-size: 12px;">SF / ATLANTA / REMOTE</div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
