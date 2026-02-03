@@ -10,6 +10,20 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: 'Monomials';
+    src: url('./fonts/Monomials.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
 :root {
     --primary: #0E0E0E;
     --accent: #0E0E0E;
@@ -34,7 +48,7 @@
 body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'NobulaHubiont', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Monomials', 'Helvetica Neue', Arial, sans-serif;
     font-size: var(--body-size);
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
@@ -47,6 +61,25 @@ h3,
     font-family: 'Dottix', 'Courier New', Courier, monospace;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+/* ASCII Effect Styles */
+a.as,
+.as {
+    cursor: pointer;
+    user-select: none;
+    font-family: "Lucida Console", "Monaco", monospace;
+    /* Ensure glitch characters render */
+}
+
+a.as::selection,
+.as::selection {
+    background: transparent;
+}
+
+a.as:hover,
+.as:hover {
+    position: relative;
 }
 
 /* Layout Grid */

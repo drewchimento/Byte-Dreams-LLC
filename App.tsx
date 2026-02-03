@@ -1,8 +1,50 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { createASCIIShift } from './asciiGlitch';
 
 const App: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Select all body copy elements: p, li, span, a
+    // Excluding headings (h1-h6) is handled by not selecting them, 
+    // but we also check parent just in case, though generic selectors are usually safe.
+    // We target common body text elements.
+    const selectors = [
+      'p',
+      'li',
+      'span',
+      'a',
+      // 'div' // div is dangerous as it might contain structural children. sticking to leaf-ish nodes.
+    ];
+
+    const elements: HTMLElement[] = [];
+    if (containerRef.current) {
+      selectors.forEach(selector => {
+        const els = containerRef.current!.querySelectorAll(selector);
+        els.forEach((el) => {
+          // Ensure it's not a heading or inside a heading-like class if needed
+          // And ensure it has text content
+          if (el.textContent?.trim() && !el.closest('h1, h2, h3, h4, h5, h6')) {
+            elements.push(el as HTMLElement);
+          }
+        });
+      });
+    }
+
+    const cleanups: (() => void)[] = [];
+
+    elements.forEach(el => {
+      const { destroy } = createASCIIShift(el, { dur: 1000, spread: 1 });
+      cleanups.push(destroy);
+    });
+
+    return () => {
+      cleanups.forEach(fn => fn());
+    };
+  }, []);
+
   return (
-    <>
+    <div ref={containerRef}>
       <nav>
         <div className="logo heading-font">BYTE DREAMS</div>
         <div className="nav-links heading-font" style={{ fontSize: '14px' }}>
@@ -118,7 +160,7 @@ const App: React.FC = () => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
