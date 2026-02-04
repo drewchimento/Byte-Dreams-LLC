@@ -181,32 +181,77 @@ nav {
 }
 
 /* How it Works Timeline */
+/* How it Works Timeline Refactor */
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 80px;
     margin-top: 40px;
 }
 
-.step {
+.timeline-group {
+    display: block;
+    width: 100%;
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    font-family: 'Dottix', monospace;
+    font-size: 14px;
+}
+
+.timeline-header::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: var(--primary);
+    margin-left: 20px;
+}
+
+.timeline-row {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    /* Align with grid lines if needed */
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .step-num {
     font-family: 'Dottix', monospace;
-    font-size: 18px;
+    font-size: 24px;
     opacity: 0.5;
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .step-label {
     display: inline-block;
     border: 1px solid var(--primary);
-    padding: 2px 8px;
-    font-size: 12px;
-    margin-bottom: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
     text-transform: uppercase;
+    align-self: flex-start;
+    /* Don't stretch */
+    margin-bottom: 10px;
+}
+
+/* Responsive: Collapse grid on mobile */
+@media (max-width: 900px) {
+    .timeline-row {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
 }
 
 /* CTA */
