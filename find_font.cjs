@@ -1,0 +1,35 @@
+const figlet = require('figlet');
+
+const target = ` ███████████              █████                ██████████                                                       
+░░███░░░░░███            ░░███                ░░███░░░░███                                                      
+ ░███    ░███ █████ ████ ███████    ██████     ░███   ░░███ ████████   ██████   ██████   █████████████    █████ 
+ ░██████████ ░░███ ░███ ░░░███░    ███░░███    ░███    ░███░░███░░███ ███░░███ ░░░░░███ ░░███░░███░░███  ███░░  
+ ░███░░░░░███ ░███ ░███   ░███    ░███████     ░███    ░███ ░███ ░░░ ░███████   ███████  ░███ ░███ ░███ ░░█████ 
+ ░███    ░███ ░███ ░███   ░███ ███░███░░░      ░███    ███  ░███     ░███░░░   ███░░███  ░███ ░███ ░███  ░░░░███
+ ███████████  ░░███████   ░░█████ ░░██████     ██████████   █████    ░░██████ ░░████████ █████░███ █████ ██████ 
+░░░░░░░░░░░    ░░░░░███    ░░░░░   ░░░░░░     ░░░░░░░░░░   ░░░░░      ░░░░░░   ░░░░░░░░ ░░░░░ ░░░ ░░░░░ ░░░░░░  
+               ███ ░███                                                                                         
+              ░░██████                                                                                          
+               ░░░░░░`;
+
+figlet.fonts(function (err, fonts) {
+    if (err) {
+        console.log('something went wrong...');
+        console.dir(err);
+        return;
+    }
+
+    let found = false;
+    for (const font of fonts) {
+        try {
+            const data = figlet.textSync('Byte Dreams', { font: font });
+            if (data.trim() === target.trim()) {
+                console.log('FOUND FONT:', font);
+                console.log(figlet.textSync('CONTACT', { font: font }));
+                found = true;
+                break;
+            }
+        } catch (e) { }
+    }
+    if (!found) console.log("Font not found");
+});

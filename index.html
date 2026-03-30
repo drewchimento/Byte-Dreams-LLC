@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Byte Dreams AI — Custom AI Systems for Your Business</title>
+  <meta name="description"
+    content="Byte Dreams builds custom AI assistants, workflow automations, and intelligent tools for small-to-mid-size businesses. Book a free discovery call today." />
+  <meta name="keywords"
+    content="AI agency, business automation, AI assistants, workflow automation, small business AI, custom AI solutions" />
+  <meta property="og:title" content="Byte Dreams AI — Custom AI Systems for Your Business" />
+  <meta property="og:description"
+    content="We build custom AI systems that save time, cut costs, and scale your operations. Book a free discovery call." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+            heading: ['"Cyber Soulja"', 'sans-serif'],
+            pixel: ['"Orpix"', 'monospace'],
+            'pixel-outline': ['"ITGridBit"', 'sans-serif'],
+          },
+          colors: {
+            accent: 'var(--accent-color)',
+            'accent-warm': 'var(--accent-warm)',
+            bg: 'var(--bg-color)',
+          },
+          animation: {
+            'grid-flow': 'grid-ripple 10s infinite linear',
+            'blink': 'blink 1s step-end infinite',
+            'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'scramble': 'scramble 0.4s steps(4) infinite',
+            'fade-up': 'fadeUp 0.6s ease-out forwards',
+          },
+          keyframes: {
+            'grid-ripple': {
+              '0%': { backgroundPosition: '0 0' },
+              '100%': { backgroundPosition: '50px 50px' },
+            },
+            blink: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0' },
+            },
+            scramble: {
+              '0%': { content: '"@#$&*"' },
+              '25%': { content: '"%^!?="' },
+              '50%': { content: '"><{}|"' },
+              '75%': { content: '"/\\+~-"' },
+              '100%': { content: '"[]()#"' },
+            },
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Font Faces */
+    @font-face {
+      font-family: 'Orpix';
+      src: url('/fonts/Orpix.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Pixworld Outline';
+      src: url('/fonts/Pixworld Outline.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cyber Soulja';
+      src: url('/fonts/Cyber Soulja.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'ITGridBit';
+      src: url('/fonts/ITGridbit-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'ITGridBit';
+      src: url('/fonts/ITGridbit-Italic.ttf') format('truetype');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    :root {
+      --bg-color: #050505;
+      --accent-color: #00FF41;
+      --accent-warm: #FF6B2C;
+      --wire-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body.override-mode {
+      --accent-color: #FFB000;
+      --accent-warm: #FF6B2C;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: white;
+      font-family: 'Orpix', monospace;
+      font-size: 18px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .scanline {
+      background: linear-gradient(to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.2));
+      background-size: 100% 4px;
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+    }
+
+    .custom-cursor {
+      cursor: crosshair;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
+    }
+
+    /* Focus States */
+    *:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .scanline {
+        display: none;
+      }
+    }
+
+    /* Smooth font rendering */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scroll Reveal Animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typewriter Effect */
+    .typewriter-container {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      vertical-align: bottom;
+    }
+
+    .typewriter-active {
+      animation: typewriter var(--tw-typing-duration, 2s) steps(var(--tw-char-count, 20)) var(--tw-typing-delay, 0s) 1 normal both;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
